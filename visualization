@@ -1,0 +1,126 @@
+import pandas as pd
+df_all = pd.DataFrame(['date': date, 'Economic Situation': Economic Situation ])
+
+minutes = pd.read_csv("./final_data/minutes_preprocessed_1.csv")
+minutes = minutes.drop(minutes.index[147:])
+print(minutes)
+
+import re
+regex = re.compile(".@@@")
+mc = regex.findall(text)
+len(mc)
+
+df_e = pd.DataFrame(columns=['date','Economic Situation', 'Foreign Currency', 'Financial Markets', 'Monetary Policy', 'Participant Views'])
+for i in range(147):
+    try:
+        regex = re.compile(".@@@")
+        mc = regex.findall(minutes['Economic Situation'][i])
+        print(len(mc))
+    except:
+        print("error index:" ,i)
+        
+#number of sentences in MPC minutes
+df_E = pd.DataFrame(columns=['date','Economic Situation', 'Foreign Currency', 'Financial Markets', 'Monetary Policy', 'Participant Views'])
+
+
+
+for i in range(147):
+    try:
+        p = minutes['Economic Situation'][i]
+        A = p.count('음 ') 
+        B = p.count('음.')
+        C = p.count('음;') 
+        D = p.count('임 ') 
+        E = p.count('임.')
+        F = p.count('함 ')
+        G = p.count('함.')
+        H = p.count('됨 ')
+        I = p.count('됨.')
+        J = p.count(';')
+        K = p.count('짐 ')
+        L = p.count('봄 ')
+        M = p.count('다.')
+        print('date :', minutes['date'][i])
+        print('Economic Situation :', A+B+C+D+E+F+G+H+I+J+K+L+M)
+        df_E['date'] = minutes['date']
+        df_E['Economic Situation'][i]= A+B+C+D+E+F+G+H+I+J+K+L+M
+        
+        p = minutes['Foreign Currency'][i]
+        A = p.count('음 ') 
+        B = p.count('음.')
+        C = p.count('음;') 
+        D = p.count('임 ') 
+        E = p.count('임.')
+        F = p.count('함 ')
+        G = p.count('함.')
+        H = p.count('됨 ')
+        I = p.count('됨.')
+        J = p.count(';')
+        K = p.count('짐 ')
+        L = p.count('봄 ')
+        M = p.count('다.')
+        print('date :', minutes['date'][i])
+        print('Foreign Currency :', A+B+C+D+E+F+G+H+I+J+K+L+M)
+        df_E['date'] = minutes['date']
+        df_E['Foreign Currency'][i]= A+B+C+D+E+F+G+H+I+J+K+L+M
+        
+        p = minutes['Financial Markets'][i]
+        A = p.count('음 ') 
+        B = p.count('음.')
+        C = p.count('음;') 
+        D = p.count('임 ') 
+        E = p.count('임.')
+        F = p.count('함 ')
+        G = p.count('함.')
+        H = p.count('됨 ')
+        I = p.count('됨.')
+        J = p.count(';')
+        K = p.count('짐 ')
+        L = p.count('봄 ')
+        M = p.count('다.')
+        print('date :', minutes['date'][i])
+        print('Financial Markets :', A+B+C+D+E+F+G+H+I+J+K+L+M)
+        df_E['date'] = minutes['date']
+        df_E['Financial Markets'][i]= A+B+C+D+E+F+G+H+I+J+K+L+M
+        
+        p = minutes['Monetary Policy'][i]
+        A = p.count('음 ') 
+        B = p.count('음.')
+        C = p.count('음;') 
+        D = p.count('임 ') 
+        E = p.count('임.')
+        F = p.count('함 ')
+        G = p.count('함.')
+        H = p.count('됨 ')
+        I = p.count('됨.')
+        J = p.count(';')
+        K = p.count('짐 ')
+        L = p.count('봄 ')
+        M = p.count('다.')
+        print('date :', minutes['date'][i])
+        print('Monetary Policy :', A+B+C+D+E+F+G+H+I+J+K+L+M)
+        df_E['date'] = minutes['date']
+        df_E['Monetary Policy'][i]= A+B+C+D+E+F+G+H+I+J+K+L+M
+        
+        p = minutes['Participant Views'][i]
+        A = p.count('음 ') 
+        B = p.count('음.')
+        C = p.count('음;') 
+        D = p.count('임 ') 
+        E = p.count('임.')
+        F = p.count('함 ')
+        G = p.count('함.')
+        H = p.count('됨 ')
+        I = p.count('됨.')
+        J = p.count(';')
+        K = p.count('짐 ')
+        L = p.count('봄 ')
+        M = p.count('다.')
+        print('date :', minutes['date'][i])
+        print('Participant Views :', A+B+C+D+E+F+G+H+I+J+K+L+M)
+        df_E['date'] = minutes['date']
+        df_E['Participant Views'][i]= A+B+C+D+E+F+G+H+I+J+K+L+M
+    except:
+        pass
+    
+    
